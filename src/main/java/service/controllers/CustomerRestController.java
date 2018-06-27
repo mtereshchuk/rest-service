@@ -26,7 +26,7 @@ public class CustomerRestController {
 	}
 
 	@RequestMapping(value = "/{customerId}", method = RequestMethod.GET)
-	Application getLastProduct(@PathVariable int customerId) {
+	Application getLastApplication(@PathVariable int customerId) {
 		Optional<Customer> customer = customerRepository.findById(customerId);
 		if (customer.isPresent()) {
 			Optional<Application> application = customer.get().getApplications().stream().max(Comparator.comparing(Application::getDate));
